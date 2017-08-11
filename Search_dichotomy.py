@@ -1,33 +1,40 @@
 # Fonction fibonacci Sequence with loop "recursive" :
-def fib(valure):
-        if valure < 1:
-            return 0
-        if valure < 3:
-            return 1
-        else:
-            return fib(valure - 1) + fib(valure - 2)
+
+mem = {}
+
+
+def fib(number):
+    # print("fib" + str(number))
+    if number < 1:
+        return 0
+    if number < 3:
+        return 1
+    if number not in mem:
+        mem[number] = fib(number - 1) + fib(number - 2)
+    return mem[number]
 
 
 # With loop "for" :
 def fib2():
-    liste = [0, 1]
+    list = [0, 1]
     for i in range(2, 25):
-        new_value = liste[i - 1] + liste[i - 2]
-        liste.append(new_value)
-    return liste
+        new_value = list[i - 1] + list[i - 2]
+        list.append(new_value)
+    return list
 
 
 # With loop "while" :
 def fib3():
     i = 0
-    liste = [0, 1]
+    list = [0, 1]
     f = 25
-    while len(liste) < f:
-        new_value = liste[i - 1] + liste[i - 2]
-        liste.append(new_value)
+    while len(list) < f:
+        new_value = list[i - 1] + list[i - 2]
+        list.append(new_value)
         # i = i + 1
-        i = len(liste)
-    return liste
+        i = len(list)
+    return list
+
 
 # Fonction dichotomous research
 def search_dic(numb, short_list):
